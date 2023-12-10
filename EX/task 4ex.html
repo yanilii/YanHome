@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM programming</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script>
+        function transform() {
+            var binaryInput = document.getElementById("digit").value;
+            var decimalOutput = parseInt(binaryInput, 2);
+            var hexOutput = decimalOutput.toString(16).toUpperCase();
+            document.getElementById("hexanum").value = hexOutput;
+        }
+        function pascals() {
+            var height = document.getElementById("size").value;
+            var result = "";
+            for (var i = 0; i < height; i++) {
+                for (var j = 0; j <= i; j++) {
+                    result += binomialCoefficient(i, j) + " ";
+                }
+                result += "<br>";
+            }
+            document.getElementById("draw_area").innerHTML = result;
+        }
+
+        function binomialCoefficient(n, k) {
+            if (k === 0 || k === n) {
+                return 1;
+            } else {
+                return binomialCoefficient(n-1, k-1) + binomialCoefficient(n-1, k);
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="h3">2진수 변환기</div>
+    <div class="mb-3">
+        <label class="form-label text-pimary">2 진수:
+            <input type="text" id="digit" size="20">
+        </label>
+        <button type="button" class="btn btn-dark" onclick="transform()"> ===> </button>
+        <label class="form-label text primary">16 진수
+            <input type="text" id="hexanum" size="20" readonly>
+        </label>
+    </div>
+    <hr>
+    <div class="h3">파스칼 삼각형</div>
+    <div class="mb-3">
+        <label class="form-label text-primary">삼각형 높이
+            <input type="number" id="size" min="1" max="20" step="1" value="1">
+        </label>
+        <button type="button" class="btn btn-success" onclick="pascals()">그리기</button>
+    </div>
+    <div class="text-bg-secondary" id="draw_area"></div>
+</div>
+</body>
+</html>

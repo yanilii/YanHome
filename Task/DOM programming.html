@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM programming</title>
+    <meta name="viewport" content="width=device width, initial-scale=1">
+    <script>
+        // id가 digit 인 입력 요소의 값(2진수)을 읽어 16진수로 변환하여 그 수 id가 hexanum' 입력 요소의 값으로 디스플레이하는 항수
+        function transform() {
+        }
+        // id가 'sized인 입력 요소의 값을 읽어 해당 크기의 파스칼 상각형을 id가 draw_area'인 영역에 그리는 기능의 함수
+        function pascals() {
+        }
+
+    </script>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="h3">2진수 변환기</div>
+    <div class="mb-3">
+        <label class="form-label text-pimary">2 진수:
+            <input type="text" id="digit" size="20">
+        </label>
+        <button type="button" class="btn btn-dark" onclick="transform()"> ===> </button>
+        <label class="form-label text primary">16 진수
+            <input type="text" id="hexanum" size="20" readonly>
+        </label>
+    </div>
+    <hr>
+    <div class="h3">파스칼 삼각형</div>
+    <div class="mb-3">
+        <label class="form-label text-primary">삼각형 높이
+            <input type="number" id="size" min="1" max="20" step="1" value="1">
+        </label>
+        <button type="button" class="btn btn-success" onclick="pascals()">그리기</button>
+    </div>
+    <div class="text-bg-secondary" id="draw_area"></div>
+</div>
+</body>
+</html>
